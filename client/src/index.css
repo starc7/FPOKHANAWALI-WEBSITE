@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@300;400&display=swap');
+
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;;
+}
+
+/* Navbar CSS */
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  /* box-shadow: 0 8px 6px -6px gray !important; */
+  
+}
+
+.navbar-nav .nav-item a {
+  color: whitesmoke;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: whitesmoke;
+}
+
+.nav-item a:hover,
+.navbar-nav .nav-item .nav-link.active:hover {
+  color: rgb(234, 142, 142);
+  /* border-bottom: 3px solid rgb(223, 171, 171); */
+}
+
+
+/* footer */
+.footer {
+  color: white;
+  padding: 25px;
+  background: #000000;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.footer a:hover {
+  color: rgb(234, 142, 142);
+  border-bottom: 1px solid rgb(223, 171, 171);
+}
+
+/* Page not found (pnf) */
+.pnf {
+  display: flex;
+  flex-direction: column;
+  min-height: 64vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-h1 {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-btn {
+  color: black;
+  background-color: rgba(74, 188, 39, 0.82);
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.pnf-btn:hover {
+  background-color: rgb(84, 203, 108);
+}
+
+.layout-bg {
+  background-image: './bgImage.jpg")'
+}
+
+/****************************************************************
+*****************Register Page Css******************************/
+
+.dette {
+  text-align: right;
+}
+
+.content-box {
+  display: flex;
+}
+
+.content {
+  padding: 10%;
+}
+
+
+/* Customized CSS */
