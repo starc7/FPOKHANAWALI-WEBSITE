@@ -91,8 +91,9 @@ const AllProducts = () => {
 
   return (
     <Layout title={"Our Products"}>
-      <div className="mx-1 row mt-3">
-        <div className="col-md-3">
+      <div className='container-fluid'>
+        <div className='row'>
+          <div className='ml-3 mt-3 col-md-3'>
           <div className="mb-2">
             <SearchInput />
           </div>
@@ -106,52 +107,53 @@ const AllProducts = () => {
               ))}
             </Radio.Group>
           </div>
-        </div>
-        <div className="col-md-9">
-          <h1 className="text-center">Our Products</h1>
-          <div className="d-flex flex-wrap">
-            {products?.map((p) => (
-              <div className="card m-2" style={{ width: "19rem" }}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/getPhoto/${p._id}`}
-                  className="card-img-top img-fluid"
-                  alt={p.name}
-                />
-                <div className="card-body text-center">
-                  <h5 className="card-title">
-                    <strong>{p.name}</strong>
-                  </h5>
-                  <h6 className="card-text">
-                    Price: <strong>₹ {p.price}/kg</strong>
-                  </h6>
-                  <h6 className="card-text">
-                    Shipping: {p.shipping ? "Available" : "Not Available"}
-                  </h6>
-                  <button
-                    className="btn btn-css ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  {p.shipping ? (
-                    <AddToCartButton p={p} />
-                  ) : (
-                    <h6
-                      style={{
-                        border: "solid skyblue",
-                        borderRadius: "5px",
-                        textAlign: "center",
-                      }}
+          </div>
+          <div className='mt-3 col-md-9'>
+          <div className="row">
+          <div className="col-24">
+            <h1 className="text-center">Products</h1>
+            <div className="row">
+              {products?.map(product => (
+                <div className="col-md-4 mb-4" key={product._id}>
+                  <div className="card" style={{ width: "100%" }}>
+                  <div className="container">
+                <img src={`${process.env.REACT_APP_API}/api/v1/product/getPhoto/${product._id}`} className="card-img-top img-fluid" alt={product.name}/></div>
+                <div className="card-body">
+                  <h5 className="card-title"><strong>{product.name}</strong></h5>
+                  <p className="card-text">
+                    Price: <strong>₹ {product.price}/kg</strong>
+                  </p>
+                  <p className="card-text">
+                    Shipping: {product.shipping ? 'Available': <i>Not Available</i>}
+                  </p>
+                  <div className="d-flex">
+                    <button
+                      className="btn btn-css"
+                      onClick={() => navigate(`/product/${product.slug}`)}
                     >
-                      Out of stock
-                    </h6>
-                  )}
+                      More Details
+                    </button>
+                    {product.shipping ? (
+                      <AddToCartButton p={product} />
+                    ) : (
+                      <button className="btn btn-outline-danger"  disabled>
+                        Out Of Stock
+                      </button>
+                    )}
+                  </div>
                 </div>
+            </div>
               </div>
             ))}
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
+
+
+
     </Layout>
   );
 };

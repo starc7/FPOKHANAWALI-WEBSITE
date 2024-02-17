@@ -6,6 +6,13 @@ import Image1 from './../images/keyfeat_coopval.png'
 import Image2 from './../images/coopprin_mutassis.png'
 import Image3 from './../images/mechanism.png'
 import Image4 from './../images/nabard.png'
+import Abhishek from './../images/abhishek.png'
+import Aditya from './../images/sachin.png'
+import Deepak from './../images/deepak.png'
+import Rekha from './../images/rekha.png'
+import Vishal from './../images/vishal.png'
+import BestServices from './../images/best_services.png'
+import Categories from './../images/categories.png'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -51,6 +58,42 @@ const Homepage = () => {
       </div>
       </div>
       <div className='container mt-1 mb-3'>
+        <img src={BestServices} alt='best_services' width={'100%'} height={'auto'}/>
+      </div>
+        <div className='mt-4 text-center'>
+          <h3 className='text-primary'><b>Board of Directors</b></h3>
+          <div className='container director-box '>
+          <div className='text'>
+            <img src={Abhishek} alt='abhishek' width={'200px'} height={'250px'}/>
+            <h5 className='mt-2 text-primary'>Abhishek</h5>
+            <h6>CEO/Chairman</h6>
+          </div>
+          <div>
+            <img src={Aditya} alt='aditya' width={'200px'} height={'250px'}/>
+            <h5 className='mt-2 text-primary'>Aditya</h5>
+            <h6 className='mb-3'>Director</h6>
+          </div>
+          <div>
+            <img src={Deepak} alt='deepak' width={'200px'} height={'250px'}/>
+            <h5 className='mt-2 text-primary'>Deepak</h5>
+            <h6 className='mb-3'>Director</h6>
+          </div>
+          <div>
+            <img src={Rekha} alt='Rekha' width={'200px'} height={'250px'}/>
+            <h5 className='mt-2 text-primary'>Rekha</h5>
+            <h6 className='mb-3>'>Director</h6>
+          </div>
+          <div>
+            <img src={Vishal} alt='Vishal' width={'200px'} height={'250px'}/>
+            <h5 className='mt-2 text-primary'>Vishal</h5>
+            <h6 className='mb-3>'>Director</h6>
+          </div>
+        </div>
+      </div>
+      <div className='container mt-1 mb-3'>
+        <img src={Categories} alt='categories' width={'100%'} height={'auto'}/>
+      </div>
+      <div className='container mt-1 mb-3'>
         <img src={Image1} alt='image1' width={'100%'} height={'auto'}/>
       </div>
       <div className='container mt-1 mb-3'>
@@ -67,7 +110,6 @@ const Homepage = () => {
         </div>
         <img src={Image4} alt='image3' width={'50%'} height={'40%'} style={{maxHeight:'500px'}}/>
       </div>
-
     </Layout>
   );
 }

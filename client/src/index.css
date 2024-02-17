@@ -101,3 +101,19 @@
 
 
 /* Customized CSS */
+.director-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .director-box {
+    flex-direction: column;
+  }
+
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}

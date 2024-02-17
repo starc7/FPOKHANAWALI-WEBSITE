@@ -18,7 +18,7 @@ const Cart = () => {
   const totalPrice = () => {
     try {
       let total = 0;
-      cart?.map((item) => (total = total + item.price));
+      cart?.map((item) => (total = total + (item.product.price * item.quantity)));
       return total;
     } catch (error) {
       console.log(error);
@@ -95,17 +95,19 @@ const Cart = () => {
               <div className="row mb-2 card flex-row">
                 <div className="col-md-4 mt-2" key={p._id}>
                   <img
-                    src={`${process.env.REACT_APP_API}/api/v1/product/getPhoto/${p._id}`}
+                    src={`${process.env.REACT_APP_API}/api/v1/product/getPhoto/${p.product._id}`}
                     className="card-img-top img-responsive"
-                    alt={p.name}
+                    alt={p.product.name}
                     width={"70%"}
                   />
                 </div>
                 <div className="col-md-8 mt-2">
                   <h4>
-                    <strong>{p.name}</strong>
+                    <strong>{p.product.name}</strong>
                   </h4>
-                  <h4>₹ {p.price}/kg</h4>
+                  <h5><b>Price:</b> ₹ {p.product.price}/kg</h5>
+                  <h5><b>Quantity</b>: {p.quantity} kg</h5>
+                  <h5><b>Amount:</b> {p.quantity * p.product.price}</h5>
                   <button
                     className="btn btn-danger remove-btn"
                     onClick={() => {
@@ -129,7 +131,7 @@ const Cart = () => {
                 <div className="mb-3">
                   <h5>Current Address: </h5>
                   <h6>{auth?.user?.address}</h6>
-                  <button className="btn btn-warning">Update Address</button>
+                  <button className="btn btn-warning" onClick={() => navigate('/dashboard/user/edit-profile')}>Update Address</button>
                 </div>
               </>
             ) : (
@@ -150,7 +152,8 @@ const Cart = () => {
               {!clientToken || !cart?.length ? (
                 ""
               ) : (
-                <>
+                (totalPrice() < 1000) ? ("You have to place the order of atleast ₹ 1000 to checkout.") :
+                (<>
                   <DropIn
                     options={{
                       authorization: clientToken,
@@ -168,7 +171,7 @@ const Cart = () => {
                   >
                     {loading ? "Processing" : "Make Payment"}
                   </button>
-                </>
+                </>)
               )}
             </div>
           </div>

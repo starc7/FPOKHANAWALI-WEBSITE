@@ -18,6 +18,8 @@ const ProductDetails = () => {
         try {
             const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/products/${params.slug}`)
             setProduct(data?.product)
+            console.log(data.product._id)
+            console.log(product)
         } catch (error) {
             console.log(error)
         }
@@ -44,22 +46,32 @@ const ProductDetails = () => {
     //     </div>
     // </Layout>
     <Layout>
-      <div className='mt-4' style={{display: 'flex', justifyContent: 'center'}}>
+      <div className='container mt-4 mb-4' style={{display: 'flex', justifyContent: 'center'}}>
        <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <div>
         <img src={`${process.env.REACT_APP_API}/api/v1/product/getPhoto/${product._id}`}
-              className="card-img-top img-fluid" style={{width: '21rem'}}
+              className="card-img-top img-fluid mt-1" style={{width: '19rem'}}
               alt={product.name} />
         </div>
-        <div className='mt-3 mx-4'>
+        <div className='mx-4'>
           <h2><strong>{product.name}</strong></h2>
           <br />
           <h4>Price: <strong>₹ {product.price}/kg</strong></h4>
           <h4>Shipping: <i>{product.shipping ? 'Available' : 'Not Avaialable'}</i></h4>
-          <h4>Description: </h4>
-          <h5>{product.description}</h5>
+          <div style={{maxWidth: '300px'}}><p className='mt-1'><strong>Description: </strong>{product.description}</p></div>
           <br />
-          <AddToCartButton p={product} />
+          {product.shipping ? (
+                      <div className='mt-1'>
+                        <AddToCartButton p={product} />
+                      </div>
+                    ) : (
+                      <>
+                      <button className="btn btn-outline-danger mt-1" style={{minWidth: '130px'}} disabled>
+                        Out Of Stock
+                      </button>
+                      <br />
+                      </>
+                    )}
           <button className="btn btn-outline-danger mt-1" style={{minWidth: '130px'}} onClick={() => {navigate(-1)}}>Back</button>
         </div>
       </div>

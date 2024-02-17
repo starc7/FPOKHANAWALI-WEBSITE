@@ -391,10 +391,11 @@ const UpdateProduct = () => {
         `${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,
         formData
       );
-      navigate("/dashboard/admin/products");
+      setTimeout(() => {
+        navigate("/dashboard/admin/products");
+      }, 2500)
       if (res.data.success) {
         toast.success(res.data.message);
-        console.log("it is success");
       } else {
         toast.error(res.data.message);
       }
@@ -486,7 +487,6 @@ const UpdateProduct = () => {
                   setPhoto(file);
                 }}
                 className="form-control"
-                required
                 hidden
               /></label>
             </div>

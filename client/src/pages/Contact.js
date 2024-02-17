@@ -13,13 +13,15 @@ const Contact = () => {
             For inquiries, please contact us via email or phone:
           </p>
           <ul>
-            <li>Email: contact@example.com</li>
-            <li>Phone: +1 (123) 456-7890</li>
+            <li>Email: abhishekpanwar8384@gmail.com</li>
+            <li>Phone: +91 6395669631</li>
+            <li>Address: <span>Khanawali, Post- Laksar,
+            Haridwar, Uttrakhand - 247663 </span>
+            </li>
           </ul>
         </Col>
       </Row>
     </Container>
-
     </Layout>
   )
 }
